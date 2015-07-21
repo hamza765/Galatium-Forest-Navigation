@@ -72,6 +72,7 @@ var GAReloader = {
     if(target)
       // Simulate a click on it
       $('iframe').attr('src', 'forestgrid.php' + GAReloader.onclickRegex.exec(target.onclick)[1]);
+      
   }
 };
 
@@ -97,6 +98,7 @@ jQuery(function() {
       var links = jQuery('a[href="?action=loot"]', frame);
       if(links.length > 0) {
         jQuery('iframe').attr('src', 'forestgrid.php?action=loot');
+        
         return true;
       }
       // Alerts you if you should stop now
@@ -110,7 +112,7 @@ jQuery(function() {
       // Check that we still have stamina to continue on
       var stam = Number(GAReloader.stam.exec(frameText)[1]);
       if(stam <= 0) {
-        console.log("Stamina returns " + stam);
+        alert("Stamina returns " + stam);
         return true;
       }
       
